@@ -14,14 +14,16 @@ white = 0 #aka the first palette value. CoilSnake fonts are usually 0 [White], 1
 def main():
     validate_image_size(main_font_image)
 
-    list_of_lengths = []
+    list_of_lengths = {}
     currentX = 0
     currentY = 0
+    i = 0
 
     #loop through the pixels of each character
     while currentY < 128: #the loop ends when it reaches the bottom of the image
         length = get_character_length(currentX, currentY)
-        list_of_lengths.append(length)
+        list_of_lengths[i] = length
+        i = i + 1
 
         currentX = currentX + 16
         if currentX >= 256:
@@ -55,7 +57,7 @@ def get_character_length(x, y):
             time.sleep(.05)
     
     if verbose:
-        print("(Nothing found, returning a length of 2)")
+        print("(No pixels found, returning a length of 2)")
         time.sleep(3)
     return empty_char_value #For characters with no pixels in them, like space
 
