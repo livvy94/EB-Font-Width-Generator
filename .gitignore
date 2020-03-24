@@ -1,4 +1,5 @@
 0_widths.yml
+.devcontainer/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
